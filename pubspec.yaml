@@ -1,0 +1,8 @@
+name: b2bapp
+description: This project is a Monorepo created for b2bapp.
+
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+dev_dependencies:
+  melos: ^6.2.0

@@ -1,0 +1,31 @@
+name: TUX
+
+packages:
+  - apps/**
+  - packages/**
+
+scripts:
+  build_all:
+    description: Build b2b app, b2b SDK, b2c SDK and component library.
+    run: |
+      melos run build_sdk
+      melos run build_components
+      melos run build_b2b
+ 
+  build_tux_b2b_sdk:
+    description: Build the SDK package.
+    run: |
+      cd $(git rev-parse --show-toplevel)/packages/sdk && flutter build ios
+
+  build_tux_components:
+    description: Build the component library package.
+    run: |
+      cd $(git rev-parse --show-toplevel)/packages/component && flutter build apk
+ 
+  build_tux_b2b:
+    description: Build the b2b app.
+    run: |
+      cd $(git rev-parse --show-toplevel)/apps/b2b && flutter build ios
+      flutter build apk
+  
+  
